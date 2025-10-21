@@ -110,11 +110,14 @@ const App: React.FC = () => {
     }
   ]);
   
-  const [currentSession, setCurrentSession] = useState<null | {
-    tableId?: number;
-    tableName?: string;
-    startedAt?: string;
-  }>(null);
+  type CurrentSession = {
+    tableId: number;
+    tableName: string;
+    buyIn: number;
+    startTime: Date;
+    status: 'playing' | 'ended';
+  };
+  const [currentSession, setCurrentSession] = useState<CurrentSession | null>(null);
   
   // Wallet page state
   const [balance] = useState(2450);
@@ -1096,7 +1099,7 @@ const App: React.FC = () => {
                 <label className="block text-sm font-medium text-cyan-300 mb-2">Document Type</label>
                 <select
                   value={selectedDocumentType}
-                  onChange={(e) => setSelectedDocumentType(e.target.value)}
+                  onChange={(e) => setSelectedDocumentType(e.target.value as KycDocType | '')}
                   className="w-full px-4 py-3 bg-slate-700 border border-slate-600 rounded-xl text-white focus:border-cyan-400 focus:ring-2 focus:ring-cyan-400/20 focus:outline-none"
                 >
                   <option value="">Select document type...</option>
@@ -2024,8 +2027,8 @@ const App: React.FC = () => {
                 </div>
                 <div>
                   <h3 className="text-white font-bold text-lg">Current Session</h3>
-                  <p className="text-green-300 text-sm">{currentSession.tableName ?? 'Assigned Table'}</p>
-                  <p className="text-green-300 text-xs">Buy-in: ${'buyIn' in (currentSession as any) ? (currentSession as any).buyIn : 0}</p>
+                  <p className="text-green-300 text-sm">{currentSession.tableName}</p>
+                  <p className="text-green-300 text-xs">Buy-in: ${currentSession.buyIn}</p>
                 </div>
               </div>
               <div className="text-right">
