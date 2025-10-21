@@ -411,7 +411,7 @@ const App: React.FC = () => {
   const handleRequestDeposit = () => {
     const amount = parseFloat(depositAmount);
     if (amount >= 1000) { // Min deposit: 1000
-      const newTransaction = {
+      const newTransaction: Transaction = {
         id: transactions.length + 1,
         type: 'deposit',
         amount: amount,
@@ -429,7 +429,7 @@ const App: React.FC = () => {
   const handleRequestWithdrawal = () => {
     const amount = parseFloat(withdrawalAmount);
     if (amount <= balance && amount > 0) { // Max withdrawal: Account balance
-      const newTransaction = {
+      const newTransaction: Transaction = {
         id: transactions.length + 1,
         type: 'withdrawal',
         amount: amount,
