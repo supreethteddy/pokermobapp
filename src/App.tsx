@@ -1,5 +1,42 @@
 import React, { useState, useEffect } from 'react';
 
+// ----- Types -----
+type StaffRole = 'Manager' | 'GRE' | 'Support';
+
+type ChatMessage = {
+  id: number;
+  sender: 'user' | 'staff';
+  senderName: string;
+  message: string;
+  timestamp: string;
+  isRead: boolean;
+};
+
+type Chat = {
+  id: number;
+  staffName: string;
+  staffRole: StaffRole;
+  lastMessage: string;
+  lastMessageTime: string;
+  unreadCount: number;
+  status: 'active' | 'resolved' | 'closed';
+  messages: ChatMessage[];
+};
+
+type KycDocType = 'aadhaar' | 'pan';
+type KycDocStatus = 'pending' | 'approved' | 'rejected';
+
+type KycDocument = {
+  id: number;
+  type: KycDocType;
+  name: string;
+  fileName: string;
+  uploadDate: string;
+  status: KycDocStatus;
+  fileSize: string;
+  downloadUrl: string;
+};
+
 const App: React.FC = () => {
   const [currentScreen, setCurrentScreen] = useState('login');
   const [isLoading, setIsLoading] = useState(false);
@@ -73,10 +110,14 @@ const App: React.FC = () => {
     }
   ]);
   
-  const [currentSession, setCurrentSession] = useState(null);
+  const [currentSession, setCurrentSession] = useState<null | {
+    tableId?: number;
+    tableName?: string;
+    startedAt?: string;
+  }>(null);
   
   // Wallet page state
-  const [balance, setBalance] = useState(2450);
+  const [balance] = useState(2450);
   const [transactions, setTransactions] = useState([
     {
       id: 1,
@@ -141,9 +182,9 @@ const App: React.FC = () => {
   const [withdrawalAmount, setWithdrawalAmount] = useState('');
   
   // Chat page state
-  const [isVerifiedPlayer, setIsVerifiedPlayer] = useState(true); // GRE/Manager verified
-  const [currentChat, setCurrentChat] = useState(null);
-  const [chatHistory, setChatHistory] = useState([
+  const [isVerifiedPlayer] = useState(true); // GRE/Manager verified
+  const [currentChat, setCurrentChat] = useState<Chat | null>(null);
+  const [chatHistory, setChatHistory] = useState<Chat[]>([
     {
       id: 1,
       staffName: 'Sarah (Manager)',
@@ -280,8 +321,8 @@ const App: React.FC = () => {
   const [editForm, setEditForm] = useState(profileData);
   
   // KYC page state
-  const [kycStatus, setKycStatus] = useState('pending'); // pending, approved, rejected
-  const [kycDocuments, setKycDocuments] = useState([
+  const [kycStatus] = useState<KycDocStatus>('pending'); // pending, approved, rejected
+  const [kycDocuments, setKycDocuments] = useState<KycDocument[]>([
     {
       id: 1,
       type: 'aadhaar',
@@ -305,8 +346,8 @@ const App: React.FC = () => {
   ]);
   
   const [showUploadModal, setShowUploadModal] = useState(false);
-  const [selectedDocumentType, setSelectedDocumentType] = useState('');
-  const [uploadedFile, setUploadedFile] = useState(null);
+  const [selectedDocumentType, setSelectedDocumentType] = useState<KycDocType | ''>('');
+  const [uploadedFile, setUploadedFile] = useState<File | null>(null);
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -381,7 +422,7 @@ const App: React.FC = () => {
 
   const handleSendMessage = () => {
     if (newMessage.trim() && currentChat) {
-      const message = {
+      const message: ChatMessage = {
         id: Date.now(),
         sender: 'user',
         senderName: 'You',
@@ -391,7 +432,7 @@ const App: React.FC = () => {
       };
       
       // Update current chat messages
-      const updatedChat = {
+      const updatedChat: Chat = {
         ...currentChat,
         messages: [...currentChat.messages, message],
         lastMessage: newMessage.trim(),
@@ -409,7 +450,7 @@ const App: React.FC = () => {
       
       // Simulate staff response after 2 seconds
       setTimeout(() => {
-        const staffResponse = {
+        const staffResponse: ChatMessage = {
           id: Date.now() + 1,
           sender: 'staff',
           senderName: currentChat.staffName,
@@ -418,7 +459,7 @@ const App: React.FC = () => {
           isRead: true
         };
         
-        const updatedChatWithResponse = {
+        const updatedChatWithResponse: Chat = {
           ...updatedChat,
           messages: [...updatedChat.messages, staffResponse],
           lastMessage: staffResponse.message,
@@ -435,14 +476,14 @@ const App: React.FC = () => {
 
   const handleStartNewChat = () => {
     const staffRoles = ['Manager', 'GRE', 'Support'];
-    const randomRole = staffRoles[Math.floor(Math.random() * staffRoles.length)];
-    const staffNames = {
-      'Manager': 'Sarah (Manager)',
-      'GRE': 'Mike (GRE)', 
-      'Support': 'Alex (Support)'
+    const randomRole = staffRoles[Math.floor(Math.random() * staffRoles.length)] as StaffRole;
+    const staffNames: Record<StaffRole, string> = {
+      Manager: 'Sarah (Manager)',
+      GRE: 'Mike (GRE)', 
+      Support: 'Alex (Support)'
     };
     
-    const newChat = {
+    const newChat: Chat = {
       id: Date.now(),
       staffName: staffNames[randomRole],
       staffRole: randomRole,
@@ -488,8 +529,8 @@ const App: React.FC = () => {
     setShowEditModal(true);
   };
 
-  const handleFileUpload = (event) => {
-    const file = event.target.files[0];
+  const handleFileUpload = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const file = event.target.files?.[0];
     if (file) {
       setUploadedFile(file);
     }
@@ -497,9 +538,9 @@ const App: React.FC = () => {
 
   const handleUploadDocument = () => {
     if (selectedDocumentType && uploadedFile) {
-      const newDocument = {
+      const newDocument: KycDocument = {
         id: Date.now(),
-        type: selectedDocumentType,
+        type: selectedDocumentType as KycDocType,
         name: selectedDocumentType === 'aadhaar' ? 'Aadhaar Card' : 'PAN Card',
         fileName: uploadedFile.name,
         uploadDate: new Date().toLocaleString(),
@@ -515,7 +556,7 @@ const App: React.FC = () => {
     }
   };
 
-  const handleReUploadDocument = (documentId) => {
+  const handleReUploadDocument = (documentId: number) => {
     const document = kycDocuments.find(doc => doc.id === documentId);
     if (document) {
       setSelectedDocumentType(document.type);
@@ -523,7 +564,7 @@ const App: React.FC = () => {
     }
   };
 
-  const handleDownloadDocument = (documentId) => {
+  const handleDownloadDocument = (documentId: number) => {
     const document = kycDocuments.find(doc => doc.id === documentId);
     if (document) {
       // In real app, this would trigger actual file download
@@ -1490,13 +1531,13 @@ const App: React.FC = () => {
             {/* Chat History */}
             <h2 className="text-white text-lg font-semibold mb-4">Chat History</h2>
             <div className="space-y-3 mb-6">
-              {chatHistory.map((chat) => {
-                const statusColors = {
+              {chatHistory.map((chat: Chat) => {
+                const statusColors: Record<Chat['status'], string> = {
                   active: 'text-green-400',
                   resolved: 'text-blue-400',
                   closed: 'text-gray-400'
                 };
-                const statusIcons = {
+                const statusIcons: Record<Chat['status'], string> = {
                   active: 'fa-circle',
                   resolved: 'fa-check-circle',
                   closed: 'fa-times-circle'
@@ -1558,7 +1599,7 @@ const App: React.FC = () => {
                 {/* Messages */}
                 <div className="p-4 max-h-80 overflow-y-auto">
                   <div className="space-y-4">
-                    {currentChat.messages.map((message) => (
+                    {currentChat.messages.map((message: ChatMessage) => (
                       <div 
                         key={message.id} 
                         className={`flex ${message.sender === 'user' ? 'justify-end' : 'justify-start'}`}
@@ -1803,20 +1844,20 @@ const App: React.FC = () => {
         {/* 4. Transaction History */}
         <h2 className="text-white text-lg font-semibold mb-4">Transaction History</h2>
         <div className="space-y-3">
-          {transactions.map((transaction) => {
-            const typeColors = {
+          {transactions.map((transaction: { id: number; type: 'deposit'|'withdrawal'|'credit'|'rake'; amount: number; status: 'completed'|'pending'|'failed'; date: string; description: string; reference: string; }) => {
+            const typeColors: Record<'deposit'|'withdrawal'|'credit'|'rake', string> = {
               deposit: 'text-green-400',
               withdrawal: 'text-red-400',
               credit: 'text-blue-400',
               rake: 'text-purple-400'
             };
-            const typeIcons = {
+            const typeIcons: Record<'deposit'|'withdrawal'|'credit'|'rake', string> = {
               deposit: 'fa-plus-circle',
               withdrawal: 'fa-minus-circle',
               credit: 'fa-gift',
               rake: 'fa-coins'
             };
-            const statusColors = {
+            const statusColors: Record<'completed'|'pending'|'failed', string> = {
               completed: 'text-green-400',
               pending: 'text-yellow-400',
               failed: 'text-red-400'
@@ -1983,8 +2024,8 @@ const App: React.FC = () => {
                 </div>
                 <div>
                   <h3 className="text-white font-bold text-lg">Current Session</h3>
-                  <p className="text-green-300 text-sm">{currentSession.tableName}</p>
-                  <p className="text-green-300 text-xs">Buy-in: ${currentSession.buyIn}</p>
+                  <p className="text-green-300 text-sm">{currentSession.tableName ?? 'Assigned Table'}</p>
+                  <p className="text-green-300 text-xs">Buy-in: ${'buyIn' in (currentSession as any) ? (currentSession as any).buyIn : 0}</p>
                 </div>
               </div>
               <div className="text-right">
@@ -2030,14 +2071,14 @@ const App: React.FC = () => {
         {/* Available Tables */}
         <h2 className="text-white text-lg font-semibold mb-4">Available Tables</h2>
         <div className="space-y-4">
-          {tables.map((table) => {
+          {tables.map((table: { id: number; name: string; gameType: string; blinds: string; minBuyIn: number; players: number; maxPlayers: number; status: 'active'|'full'|'starting'; waitlistCount: number; dealer: string; rake: number; }) => {
             const isOnWaitlist = userWaitlists.some(w => w.tableId === table.id);
-            const statusColors = {
+            const statusColors: Record<'active'|'full'|'starting', string> = {
               active: 'text-green-400',
               full: 'text-red-400',
               starting: 'text-yellow-400'
             };
-            const statusIcons = {
+            const statusIcons: Record<'active'|'full'|'starting', string> = {
               active: 'fa-play-circle',
               full: 'fa-users',
               starting: 'fa-clock'
