@@ -37,6 +37,34 @@ type KycDocument = {
   downloadUrl: string;
 };
 
+// Tables and Transactions
+type TableStatus = 'active' | 'full' | 'starting';
+type Table = {
+  id: number;
+  name: string;
+  gameType: string;
+  blinds: string;
+  minBuyIn: number;
+  players: number;
+  maxPlayers: number;
+  status: TableStatus;
+  waitlistCount: number;
+  dealer: string;
+  rake: number;
+};
+
+type TransactionType = 'deposit' | 'withdrawal' | 'credit' | 'rake';
+type TransactionStatus = 'completed' | 'pending' | 'failed';
+type Transaction = {
+  id: number;
+  type: TransactionType;
+  amount: number;
+  status: TransactionStatus;
+  date: string;
+  description: string;
+  reference: string;
+};
+
 const App: React.FC = () => {
   const [currentScreen, setCurrentScreen] = useState('login');
   const [isLoading, setIsLoading] = useState(false);
@@ -46,7 +74,7 @@ const App: React.FC = () => {
   const [showPassword, setShowPassword] = useState(false);
   
   // Tables page state
-  const [tables, setTables] = useState([
+  const [tables, setTables] = useState<Table[]>([
     {
       id: 1,
       name: "Table 1: No-Limit Hold'em",
@@ -121,7 +149,7 @@ const App: React.FC = () => {
   
   // Wallet page state
   const [balance] = useState(2450);
-  const [transactions, setTransactions] = useState([
+  const [transactions, setTransactions] = useState<Transaction[]>([
     {
       id: 1,
       type: 'deposit',
@@ -1847,20 +1875,20 @@ const App: React.FC = () => {
         {/* 4. Transaction History */}
         <h2 className="text-white text-lg font-semibold mb-4">Transaction History</h2>
         <div className="space-y-3">
-          {transactions.map((transaction: { id: number; type: 'deposit'|'withdrawal'|'credit'|'rake'; amount: number; status: 'completed'|'pending'|'failed'; date: string; description: string; reference: string; }) => {
-            const typeColors: Record<'deposit'|'withdrawal'|'credit'|'rake', string> = {
+          {transactions.map((transaction: Transaction) => {
+            const typeColors: Record<TransactionType, string> = {
               deposit: 'text-green-400',
               withdrawal: 'text-red-400',
               credit: 'text-blue-400',
               rake: 'text-purple-400'
             };
-            const typeIcons: Record<'deposit'|'withdrawal'|'credit'|'rake', string> = {
+            const typeIcons: Record<TransactionType, string> = {
               deposit: 'fa-plus-circle',
               withdrawal: 'fa-minus-circle',
               credit: 'fa-gift',
               rake: 'fa-coins'
             };
-            const statusColors: Record<'completed'|'pending'|'failed', string> = {
+            const statusColors: Record<TransactionStatus, string> = {
               completed: 'text-green-400',
               pending: 'text-yellow-400',
               failed: 'text-red-400'
@@ -2074,14 +2102,14 @@ const App: React.FC = () => {
         {/* Available Tables */}
         <h2 className="text-white text-lg font-semibold mb-4">Available Tables</h2>
         <div className="space-y-4">
-          {tables.map((table: { id: number; name: string; gameType: string; blinds: string; minBuyIn: number; players: number; maxPlayers: number; status: 'active'|'full'|'starting'; waitlistCount: number; dealer: string; rake: number; }) => {
+          {tables.map((table: Table) => {
             const isOnWaitlist = userWaitlists.some(w => w.tableId === table.id);
-            const statusColors: Record<'active'|'full'|'starting', string> = {
+            const statusColors: Record<TableStatus, string> = {
               active: 'text-green-400',
               full: 'text-red-400',
               starting: 'text-yellow-400'
             };
-            const statusIcons: Record<'active'|'full'|'starting', string> = {
+            const statusIcons: Record<TableStatus, string> = {
               active: 'fa-play-circle',
               full: 'fa-users',
               starting: 'fa-clock'
