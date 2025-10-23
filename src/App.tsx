@@ -656,13 +656,13 @@ const App: React.FC = () => {
   };
 
   const renderLoginScreen = () => (
-    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-blue-900 to-slate-800 relative overflow-hidden">
+    <div className="min-h-screen bg-black relative overflow-hidden">
       {/* Animated Background Particles */}
       <div className="absolute inset-0">
         {[...Array(20)].map((_, i) => (
           <div
             key={i}
-            className="particle absolute w-2 h-2 bg-cyan-400 rounded-full opacity-30 animate-pulse"
+            className="particle absolute w-2 h-2 bg-purple-400 rounded-full opacity-30 animate-pulse"
             style={{
               left: `${Math.random() * 100}%`,
               top: `${Math.random() * 100}%`,
@@ -677,25 +677,25 @@ const App: React.FC = () => {
       <div className="relative z-10 flex flex-col items-center justify-center min-h-screen px-6">
         {/* Logo Area */}
         <div className="mb-12 text-center">
-          <div className="w-24 h-24 mx-auto mb-6 bg-gradient-to-r from-cyan-400 to-purple-500 rounded-full flex items-center justify-center shadow-lg shadow-cyan-500/25">
+          <div className="w-24 h-24 mx-auto mb-6 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full flex items-center justify-center shadow-lg shadow-pink-500/25">
             <i className="fas fa-spade-suit text-3xl text-white"></i>
           </div>
           <h1 className="text-4xl font-bold text-white mb-2 tracking-wide">PokerCRM</h1>
-          <p className="text-cyan-300 text-lg">Premium Poker Club Experience</p>
+          <p className="text-purple-300 text-lg">Premium Poker Club Experience</p>
         </div>
 
         {/* Login Form */}
-        <div className="w-full max-w-sm bg-white/10 backdrop-blur-lg rounded-3xl p-8 border border-cyan-500/20 shadow-2xl shadow-cyan-500/10">
+        <div className="w-full max-w-sm bg-white/10 backdrop-blur-lg rounded-3xl p-8 border border-purple-500/20 shadow-2xl shadow-purple-500/10">
           <div className="space-y-6">
             {/* Email Input */}
             <div className="relative">
-              <label className="block text-sm font-medium text-cyan-300 mb-2">Email Address</label>
+              <label className="block text-sm font-medium text-purple-300 mb-2">Email Address</label>
               <div className="relative">
                 <input
                   type="email"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
-                  className="w-full px-4 py-4 bg-slate-800/50 border border-slate-600 rounded-2xl text-white placeholder-slate-400 focus:border-cyan-400 focus:ring-2 focus:ring-cyan-400/20 focus:outline-none transition-all duration-300 text-sm"
+                  className="w-full px-4 py-4 bg-slate-800/50 border border-slate-600 rounded-2xl text-white placeholder-slate-400 focus:border-purple-400 focus:ring-2 focus:ring-purple-400/20 focus:outline-none transition-all duration-300 text-sm"
                   placeholder="Enter your email"
                 />
                 <i className="fas fa-envelope absolute right-4 top-1/2 transform -translate-y-1/2 text-slate-400 text-sm"></i>
@@ -704,19 +704,19 @@ const App: React.FC = () => {
 
             {/* Password Input */}
             <div className="relative">
-              <label className="block text-sm font-medium text-cyan-300 mb-2">Password</label>
+              <label className="block text-sm font-medium text-purple-300 mb-2">Password</label>
               <div className="relative">
                 <input
                   type={showPassword ? 'text' : 'password'}
                   value={password}
                   onChange={(e) => setPassword(e.target.value)}
-                  className="w-full px-4 py-4 bg-slate-800/50 border border-slate-600 rounded-2xl text-white placeholder-slate-400 focus:border-cyan-400 focus:ring-2 focus:ring-cyan-400/20 focus:outline-none transition-all duration-300 text-sm pr-12"
+                  className="w-full px-4 py-4 bg-slate-800/50 border border-slate-600 rounded-2xl text-white placeholder-slate-400 focus:border-purple-400 focus:ring-2 focus:ring-purple-400/20 focus:outline-none transition-all duration-300 text-sm pr-12"
                   placeholder="Enter your password"
                 />
                 <button
                   type="button"
                   onClick={() => setShowPassword(!showPassword)}
-                  className="absolute right-4 top-1/2 transform -translate-y-1/2 text-slate-400 hover:text-cyan-400 transition-colors cursor-pointer"
+                  className="absolute right-4 top-1/2 transform -translate-y-1/2 text-slate-400 hover:text-purple-400 transition-colors cursor-pointer"
                 >
                   <i className={`fas ${showPassword ? 'fa-eye-slash' : 'fa-eye'} text-sm`}></i>
                 </button>
@@ -727,7 +727,7 @@ const App: React.FC = () => {
             <button
               onClick={handleLogin}
               disabled={isLoading}
-              className="w-full bg-gradient-to-r from-orange-500 to-red-500 hover:from-orange-600 hover:to-red-600 text-white font-semibold py-4 rounded-2xl transition-all duration-300 shadow-lg shadow-orange-500/25 hover:shadow-orange-500/40 disabled:opacity-50 !rounded-button cursor-pointer"
+              className="w-full bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 text-white font-semibold py-4 rounded-2xl transition-all duration-300 shadow-lg shadow-pink-500/25 hover:shadow-pink-500/40 disabled:opacity-50 !rounded-button cursor-pointer"
             >
               {isLoading ? (
                 <div className="flex items-center justify-center space-x-2">
@@ -741,7 +741,7 @@ const App: React.FC = () => {
 
             {/* Forgot Password */}
             <div className="text-center">
-              <button className="text-cyan-400 hover:text-cyan-300 text-sm font-medium transition-colors cursor-pointer">
+              <button className="text-purple-400 hover:text-purple-300 text-sm font-medium transition-colors cursor-pointer">
                 Forgot Password?
               </button>
             </div>
@@ -759,7 +759,7 @@ const App: React.FC = () => {
             {/* Sign Up Link */}
             <div className="text-center">
               <span className="text-slate-400 text-sm">Don't have an account? </span>
-              <button className="text-cyan-400 hover:text-cyan-300 text-sm font-medium transition-colors cursor-pointer">
+              <button className="text-purple-400 hover:text-purple-300 text-sm font-medium transition-colors cursor-pointer">
                 Sign Up
               </button>
             </div>
@@ -775,7 +775,7 @@ const App: React.FC = () => {
   );
 
   const renderClubCodeScreen = () => (
-    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-800 relative overflow-hidden">
+    <div className="min-h-screen bg-black relative overflow-hidden">
       {/* Animated Background */}
       <div className="absolute inset-0">
         {[...Array(15)].map((_, i) => (
@@ -849,46 +849,46 @@ const App: React.FC = () => {
   );
 
   const renderBottomNavigation = () => (
-    <div className="fixed bottom-0 w-full bg-slate-900/80 backdrop-blur-lg border-t border-cyan-500/20">
+    <div className="fixed bottom-0 w-full bg-slate-900/80 backdrop-blur-lg border-t border-purple-500/20">
       <div className="grid grid-cols-6 py-3">
         <button 
           onClick={() => setCurrentScreen('dashboard')} 
-          className={`flex flex-col items-center justify-center py-2 transition-colors cursor-pointer ${currentScreen === 'dashboard' ? 'text-cyan-400' : 'text-slate-400 hover:text-cyan-400'}`}
+          className={`flex flex-col items-center justify-center py-2 transition-colors cursor-pointer ${currentScreen === 'dashboard' ? 'text-purple-400' : 'text-slate-400 hover:text-purple-400'}`}
         >
           <i className="fas fa-home text-lg mb-1"></i>
           <span className="text-xs">Home</span>
         </button>
         <button 
           onClick={() => setCurrentScreen('tables')} 
-          className={`flex flex-col items-center justify-center py-2 transition-colors cursor-pointer ${currentScreen === 'tables' ? 'text-cyan-400' : 'text-slate-400 hover:text-cyan-400'}`}
+          className={`flex flex-col items-center justify-center py-2 transition-colors cursor-pointer ${currentScreen === 'tables' ? 'text-purple-400' : 'text-slate-400 hover:text-purple-400'}`}
         >
           <i className="fas fa-table text-lg mb-1"></i>
           <span className="text-xs">Tables</span>
         </button>
         <button 
           onClick={() => setCurrentScreen('wallet')} 
-          className={`flex flex-col items-center justify-center py-2 transition-colors cursor-pointer ${currentScreen === 'wallet' ? 'text-cyan-400' : 'text-slate-400 hover:text-cyan-400'}`}
+          className={`flex flex-col items-center justify-center py-2 transition-colors cursor-pointer ${currentScreen === 'wallet' ? 'text-purple-400' : 'text-slate-400 hover:text-purple-400'}`}
         >
           <i className="fas fa-wallet text-lg mb-1"></i>
           <span className="text-xs">Wallet</span>
         </button>
         <button 
           onClick={() => setCurrentScreen('chat')} 
-          className={`flex flex-col items-center justify-center py-2 transition-colors cursor-pointer ${currentScreen === 'chat' ? 'text-cyan-400' : 'text-slate-400 hover:text-cyan-400'}`}
+          className={`flex flex-col items-center justify-center py-2 transition-colors cursor-pointer ${currentScreen === 'chat' ? 'text-purple-400' : 'text-slate-400 hover:text-purple-400'}`}
         >
           <i className="fas fa-comments text-lg mb-1"></i>
           <span className="text-xs">Chat</span>
         </button>
         <button 
           onClick={() => setCurrentScreen('kyc')} 
-          className={`flex flex-col items-center justify-center py-2 transition-colors cursor-pointer ${currentScreen === 'kyc' ? 'text-cyan-400' : 'text-slate-400 hover:text-cyan-400'}`}
+          className={`flex flex-col items-center justify-center py-2 transition-colors cursor-pointer ${currentScreen === 'kyc' ? 'text-purple-400' : 'text-slate-400 hover:text-purple-400'}`}
         >
           <i className="fas fa-id-card text-lg mb-1"></i>
           <span className="text-xs">KYC</span>
         </button>
         <button 
           onClick={() => setCurrentScreen('profile')} 
-          className={`flex flex-col items-center justify-center py-2 transition-colors cursor-pointer ${currentScreen === 'profile' ? 'text-cyan-400' : 'text-slate-400 hover:text-cyan-400'}`}
+          className={`flex flex-col items-center justify-center py-2 transition-colors cursor-pointer ${currentScreen === 'profile' ? 'text-purple-400' : 'text-slate-400 hover:text-purple-400'}`}
         >
           <i className="fas fa-user text-lg mb-1"></i>
           <span className="text-xs">Profile</span>
@@ -898,13 +898,13 @@ const App: React.FC = () => {
   );
 
   const renderKYCScreen = () => (
-    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-blue-900 to-slate-800 relative overflow-hidden">
+    <div className="min-h-screen bg-black relative overflow-hidden">
       {/* Animated Background Particles */}
       <div className="absolute inset-0">
         {[...Array(20)].map((_, i) => (
           <div
             key={i}
-            className="particle absolute w-2 h-2 bg-cyan-400 rounded-full opacity-30 animate-pulse"
+            className="particle absolute w-2 h-2 bg-purple-400 rounded-full opacity-30 animate-pulse"
             style={{
               left: `${Math.random() * 100}%`,
               top: `${Math.random() * 100}%`,
@@ -916,22 +916,22 @@ const App: React.FC = () => {
       </div>
 
       {/* Header */}
-      <div className="fixed top-0 w-full bg-slate-900/80 backdrop-blur-lg border-b border-cyan-500/20 z-50">
+      <div className="fixed top-0 w-full bg-slate-900/80 backdrop-blur-lg border-b border-purple-500/20 z-50">
         <div className="px-6 py-4 flex items-center justify-between">
           <div className="flex items-center space-x-3">
-            <div className="w-10 h-10 bg-gradient-to-r from-cyan-400 to-purple-500 rounded-full flex items-center justify-center">
-              <i className="fas fa-id-card text-white text-sm"></i>
+            <div className="w-12 h-12 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full flex items-center justify-center">
+              <i className="fas fa-id-card text-white text-xl"></i>
             </div>
             <div>
               <h1 className="text-white font-semibold text-lg">KYC Verification</h1>
-              <p className="text-cyan-300 text-xs">Elite Poker Club</p>
+              <p className="text-purple-300 text-xs">Elite Poker Club</p>
             </div>
           </div>
           <div className="flex items-center space-x-3">
-            <button className="w-10 h-10 bg-slate-800/50 rounded-full flex items-center justify-center text-slate-400 hover:text-cyan-400 transition-colors cursor-pointer">
+            <button className="w-10 h-10 bg-slate-800/50 rounded-full flex items-center justify-center text-slate-400 hover:text-purple-400 transition-colors cursor-pointer">
               <i className="fas fa-bell text-sm"></i>
             </button>
-            <button className="w-10 h-10 bg-slate-800/50 rounded-full flex items-center justify-center text-slate-400 hover:text-cyan-400 transition-colors cursor-pointer">
+            <button className="w-10 h-10 bg-slate-800/50 rounded-full flex items-center justify-center text-slate-400 hover:text-purple-400 transition-colors cursor-pointer">
               <i className="fas fa-user text-sm"></i>
             </button>
           </div>
@@ -942,15 +942,15 @@ const App: React.FC = () => {
       <div className="pt-20 pb-24 px-6">
         {/* Verification Status */}
         <div className={`backdrop-blur-lg rounded-2xl p-6 border shadow-lg mb-6 ${
-          kycStatus === 'approved' ? 'bg-gradient-to-r from-green-500/20 to-emerald-500/20 border-green-500/30 shadow-green-500/10' :
-          kycStatus === 'rejected' ? 'bg-gradient-to-r from-red-500/20 to-pink-500/20 border-red-500/30 shadow-red-500/10' :
-          'bg-gradient-to-r from-yellow-500/20 to-orange-500/20 border-yellow-500/30 shadow-yellow-500/10'
+          kycStatus === 'approved' ? 'bg-gradient-to-r from-purple-500/20 to-pink-500/20 border-purple-500/30 shadow-purple-500/10' :
+          kycStatus === 'rejected' ? 'bg-gradient-to-r from-pink-500/20 to-purple-500/20 border-pink-500/30 shadow-pink-500/10' :
+          'bg-gradient-to-r from-purple-400/20 to-pink-400/20 border-purple-400/30 shadow-purple-400/10'
         }`}>
           <div className="flex items-center justify-between">
             <div className="flex items-center space-x-3">
               <div className={`w-12 h-12 rounded-full flex items-center justify-center ${
-                kycStatus === 'approved' ? 'bg-green-500' :
-                kycStatus === 'rejected' ? 'bg-red-500' : 'bg-yellow-500'
+                kycStatus === 'approved' ? 'bg-purple-500' :
+                kycStatus === 'rejected' ? 'bg-pink-500' : 'bg-purple-400'
               }`}>
                 <i className={`fas text-white text-lg ${
                   kycStatus === 'approved' ? 'fa-check' :
@@ -960,8 +960,8 @@ const App: React.FC = () => {
               <div>
                 <h3 className="text-white font-bold text-lg">KYC Verification Status</h3>
                 <p className={`text-sm ${
-                  kycStatus === 'approved' ? 'text-green-300' :
-                  kycStatus === 'rejected' ? 'text-red-300' : 'text-yellow-300'
+                  kycStatus === 'approved' ? 'text-purple-300' :
+                  kycStatus === 'rejected' ? 'text-pink-300' : 'text-purple-300'
                 }`}>
                   {kycStatus === 'approved' ? 'Verified & Approved' :
                    kycStatus === 'rejected' ? 'Rejected - Action Required' : 'Pending Review'}
@@ -970,8 +970,8 @@ const App: React.FC = () => {
             </div>
             <div className="text-right">
               <div className={`text-lg font-bold ${
-                kycStatus === 'approved' ? 'text-green-400' :
-                kycStatus === 'rejected' ? 'text-red-400' : 'text-yellow-400'
+                kycStatus === 'approved' ? 'text-purple-400' :
+                kycStatus === 'rejected' ? 'text-pink-400' : 'text-purple-300'
               }`}>
                 {kycStatus === 'approved' ? '✓ Approved' :
                  kycStatus === 'rejected' ? '✗ Rejected' : '⏳ Pending'}
@@ -982,12 +982,12 @@ const App: React.FC = () => {
         </div>
 
         {/* Upload Documents */}
-        <div className="bg-white/10 backdrop-blur-lg rounded-2xl p-6 border border-cyan-500/20 shadow-lg mb-6">
+        <div className="bg-white/10 backdrop-blur-lg rounded-2xl p-6 border border-purple-500/20 shadow-lg mb-6">
           <div className="flex items-center justify-between mb-4">
             <h3 className="text-white font-bold text-lg">Upload Documents</h3>
             <button 
               onClick={() => setShowUploadModal(true)}
-              className="bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-cyan-600 hover:to-blue-600 text-white px-4 py-2 rounded-xl transition-colors text-sm"
+              className="bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 text-white px-4 py-2 rounded-xl transition-colors text-sm"
             >
               <i className="fas fa-upload mr-1"></i>
               Upload Document
@@ -997,8 +997,8 @@ const App: React.FC = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div className="bg-slate-800/50 rounded-xl p-4">
               <div className="flex items-center space-x-3 mb-3">
-                <div className="w-10 h-10 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-full flex items-center justify-center">
-                  <i className="fas fa-id-card text-white text-sm"></i>
+                <div className="w-12 h-12 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full flex items-center justify-center">
+                  <i className="fas fa-id-card text-white text-xl"></i>
                 </div>
                 <div>
                   <h4 className="text-white font-semibold">Aadhaar Card</h4>
@@ -1012,8 +1012,8 @@ const App: React.FC = () => {
             
             <div className="bg-slate-800/50 rounded-xl p-4">
               <div className="flex items-center space-x-3 mb-3">
-                <div className="w-10 h-10 bg-gradient-to-r from-orange-500 to-red-500 rounded-full flex items-center justify-center">
-                  <i className="fas fa-credit-card text-white text-sm"></i>
+                <div className="w-12 h-12 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full flex items-center justify-center">
+                  <i className="fas fa-credit-card text-white text-xl"></i>
                 </div>
                 <div>
                   <h4 className="text-white font-semibold">PAN Card</h4>
@@ -1032,9 +1032,9 @@ const App: React.FC = () => {
         <div className="space-y-3 mb-6">
           {kycDocuments.map((document) => {
             const statusColors = {
-              approved: 'text-green-400',
-              pending: 'text-yellow-400',
-              rejected: 'text-red-400'
+              approved: 'text-purple-400',
+              pending: 'text-purple-300',
+              rejected: 'text-pink-400'
             };
             const statusIcons = {
               approved: 'fa-check-circle',
@@ -1042,13 +1042,13 @@ const App: React.FC = () => {
               rejected: 'fa-times-circle'
             };
             const statusBgColors = {
-              approved: 'bg-green-500',
-              pending: 'bg-yellow-500',
-              rejected: 'bg-red-500'
+              approved: 'bg-purple-500',
+              pending: 'bg-purple-400',
+              rejected: 'bg-pink-500'
             };
 
             return (
-              <div key={document.id} className="bg-white/10 backdrop-blur-lg rounded-2xl p-4 border border-cyan-500/20 shadow-lg">
+              <div key={document.id} className="bg-white/10 backdrop-blur-lg rounded-2xl p-4 border border-purple-500/20 shadow-lg">
                 <div className="flex items-center justify-between">
                   <div className="flex items-center space-x-3">
                     <div className={`w-10 h-10 ${statusBgColors[document.status]} rounded-full flex items-center justify-center`}>
@@ -1076,7 +1076,7 @@ const App: React.FC = () => {
                     {document.status === 'rejected' && (
                       <button
                         onClick={() => handleReUploadDocument(document.id)}
-                        className="bg-red-500 hover:bg-red-600 text-white px-2 py-2 rounded-lg text-xs transition-colors whitespace-nowrap"
+                        className="bg-pink-500 hover:bg-pink-600 text-white px-2 py-2 rounded-lg text-xs transition-colors whitespace-nowrap"
                       >
                         <i className="fas fa-upload mr-1"></i>
                         Re-upload
@@ -1090,27 +1090,27 @@ const App: React.FC = () => {
         </div>
 
         {/* KYC Guidelines */}
-        <div className="bg-white/10 backdrop-blur-lg rounded-2xl p-6 border border-cyan-500/20 shadow-lg">
+        <div className="bg-white/10 backdrop-blur-lg rounded-2xl p-6 border border-purple-500/20 shadow-lg">
           <h3 className="text-white font-bold text-lg mb-4">KYC Guidelines</h3>
           <div className="space-y-3 text-sm text-slate-300">
             <div className="flex items-start space-x-3">
-              <i className="fas fa-check text-green-400 text-xs mt-1"></i>
+              <i className="fas fa-check text-purple-400 text-xs mt-1"></i>
               <span>Ensure documents are clear and readable</span>
             </div>
             <div className="flex items-start space-x-3">
-              <i className="fas fa-check text-green-400 text-xs mt-1"></i>
+              <i className="fas fa-check text-purple-400 text-xs mt-1"></i>
               <span>Upload high-resolution images (minimum 1MB)</span>
             </div>
             <div className="flex items-start space-x-3">
-              <i className="fas fa-check text-green-400 text-xs mt-1"></i>
+              <i className="fas fa-check text-purple-400 text-xs mt-1"></i>
               <span>All corners of the document should be visible</span>
             </div>
             <div className="flex items-start space-x-3">
-              <i className="fas fa-check text-green-400 text-xs mt-1"></i>
+              <i className="fas fa-check text-purple-400 text-xs mt-1"></i>
               <span>Documents should not be expired</span>
             </div>
             <div className="flex items-start space-x-3">
-              <i className="fas fa-check text-green-400 text-xs mt-1"></i>
+              <i className="fas fa-check text-purple-400 text-xs mt-1"></i>
               <span>Review process takes up to 24 hours</span>
             </div>
           </div>
@@ -1120,7 +1120,7 @@ const App: React.FC = () => {
       {/* Upload Modal */}
       {showUploadModal && (
         <div className="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center z-50 p-6">
-          <div className="bg-slate-800 rounded-2xl p-6 w-full max-w-sm border border-cyan-500/20">
+          <div className="bg-slate-800 rounded-2xl p-6 w-full max-w-sm border border-purple-500/20">
             <h3 className="text-white text-lg font-bold mb-4">Upload Document</h3>
             <div className="space-y-4">
               <div>
@@ -1173,13 +1173,13 @@ const App: React.FC = () => {
   );
 
   const renderProfileScreen = () => (
-    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-blue-900 to-slate-800 relative overflow-hidden">
+    <div className="min-h-screen bg-black relative overflow-hidden">
       {/* Animated Background Particles */}
       <div className="absolute inset-0">
         {[...Array(20)].map((_, i) => (
           <div
             key={i}
-            className="particle absolute w-2 h-2 bg-cyan-400 rounded-full opacity-30 animate-pulse"
+            className="particle absolute w-2 h-2 bg-purple-400 rounded-full opacity-30 animate-pulse"
             style={{
               left: `${Math.random() * 100}%`,
               top: `${Math.random() * 100}%`,
@@ -1191,22 +1191,22 @@ const App: React.FC = () => {
       </div>
 
       {/* Header */}
-      <div className="fixed top-0 w-full bg-slate-900/80 backdrop-blur-lg border-b border-cyan-500/20 z-50">
+      <div className="fixed top-0 w-full bg-slate-900/80 backdrop-blur-lg border-b border-purple-500/20 z-50">
         <div className="px-6 py-4 flex items-center justify-between">
           <div className="flex items-center space-x-3">
-            <div className="w-10 h-10 bg-gradient-to-r from-cyan-400 to-purple-500 rounded-full flex items-center justify-center">
-              <i className="fas fa-user text-white text-sm"></i>
+            <div className="w-14 h-14 aspect-square shrink-0 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full flex items-center justify-center">
+              <i className="fas fa-user text-white text-2xl"></i>
             </div>
             <div>
               <h1 className="text-white font-semibold text-lg">Profile</h1>
-              <p className="text-cyan-300 text-xs">Elite Poker Club</p>
+              <p className="text-purple-300 text-xs">Elite Poker Club</p>
             </div>
           </div>
           <div className="flex items-center space-x-3">
-            <button className="w-10 h-10 bg-slate-800/50 rounded-full flex items-center justify-center text-slate-400 hover:text-cyan-400 transition-colors cursor-pointer">
+            <button className="w-10 h-10 bg-slate-800/50 rounded-full flex items-center justify-center text-slate-400 hover:text-purple-400 transition-colors cursor-pointer">
               <i className="fas fa-bell text-sm"></i>
             </button>
-            <button className="w-10 h-10 bg-slate-800/50 rounded-full flex items-center justify-center text-slate-400 hover:text-cyan-400 transition-colors cursor-pointer">
+            <button className="w-10 h-10 bg-slate-800/50 rounded-full flex items-center justify-center text-slate-400 hover:text-purple-400 transition-colors cursor-pointer">
               <i className="fas fa-user text-sm"></i>
             </button>
           </div>
@@ -1216,19 +1216,19 @@ const App: React.FC = () => {
       {/* Main Content */}
       <div className="pt-20 pb-24 px-6">
         {/* Profile Header */}
-        <div className="bg-gradient-to-r from-cyan-500/20 to-purple-500/20 backdrop-blur-lg rounded-2xl p-6 border border-cyan-500/30 shadow-lg shadow-cyan-500/10 mb-6">
+        <div className="bg-gradient-to-r from-purple-500/20 to-pink-500/20 backdrop-blur-lg rounded-2xl p-6 border border-purple-500/30 shadow-lg shadow-purple-500/10 mb-6">
           <div className="flex items-center space-x-4">
-            <div className="w-16 h-16 bg-gradient-to-r from-cyan-400 to-purple-500 rounded-full flex items-center justify-center">
+            <div className="w-14 h-14 aspect-square shrink-0 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full flex items-center justify-center">
               <i className="fas fa-user text-white text-2xl"></i>
             </div>
             <div className="flex-1">
               <h2 className="text-white font-bold text-xl">{profileData.firstName} {profileData.lastName}</h2>
-              <p className="text-cyan-300 text-sm">{profileData.email}</p>
+              <p className="text-purple-300 text-sm">{profileData.email}</p>
               <p className="text-slate-300 text-xs">Member since {profileData.joinDate}</p>
             </div>
             <button 
               onClick={handleEditProfile}
-              className="bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-cyan-600 hover:to-blue-600 text-white px-4 py-2 rounded-xl transition-colors text-sm"
+              className="bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 text-white px-3 py-1.5 rounded-lg transition-colors text-xs"
             >
               <i className="fas fa-edit mr-1"></i>
               Edit Profile
@@ -1237,20 +1237,20 @@ const App: React.FC = () => {
         </div>
 
         {/* Player Code */}
-        <div className="bg-white/10 backdrop-blur-lg rounded-2xl p-6 border border-cyan-500/20 shadow-lg mb-6">
+        <div className="bg-white/10 backdrop-blur-lg rounded-2xl p-6 border border-purple-500/20 shadow-lg mb-6">
           <div className="flex items-center justify-between">
-            <div className="flex items-center space-x-3">
-              <div className="w-12 h-12 bg-gradient-to-r from-orange-500 to-red-500 rounded-full flex items-center justify-center">
-                <i className="fas fa-id-card text-white text-lg"></i>
-              </div>
+          <div className="flex items-center space-x-3">
+              <div className="w-14 h-14 aspect-square shrink-0 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full flex items-center justify-center">
+                <i className="fas fa-id-card text-white text-2xl"></i>
+            </div>
               <div>
                 <h3 className="text-white font-bold text-lg">Player Code</h3>
-                <p className="text-orange-300 text-sm">Auto-generated on signup</p>
+                <p className="text-purple-300 text-sm">Auto-generated on signup</p>
               </div>
             </div>
             <div className="text-right">
               <div className="text-white text-xl font-bold font-mono">{profileData.playerCode}</div>
-              <button className="text-orange-400 text-xs hover:text-orange-300 transition-colors">
+              <button className="text-purple-400 text-xs hover:text-purple-300 transition-colors">
                 <i className="fas fa-copy mr-1"></i>
                 Copy Code
               </button>
@@ -1262,8 +1262,8 @@ const App: React.FC = () => {
         <div className="bg-white/10 backdrop-blur-lg rounded-2xl p-6 border border-cyan-500/20 shadow-lg mb-6">
           <div className="flex items-center justify-between">
             <div className="flex items-center space-x-3">
-              <div className="w-12 h-12 bg-gradient-to-r from-yellow-500 to-orange-500 rounded-full flex items-center justify-center">
-                <i className="fas fa-crown text-white text-lg"></i>
+              <div className="w-14 h-14 aspect-square shrink-0 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full flex items-center justify-center">
+                <i className="fas fa-crown text-white text-2xl"></i>
               </div>
               <div>
                 <h3 className="text-white font-bold text-lg">Membership Status</h3>
@@ -1272,7 +1272,7 @@ const App: React.FC = () => {
             </div>
             <div className="text-right">
               <div className="text-white text-xl font-bold">{profileData.membershipStatus}</div>
-              <div className="text-yellow-400 text-xs">VIP Member</div>
+              <div className="text-purple-300 text-xs">VIP Member</div>
             </div>
           </div>
         </div>
@@ -1283,16 +1283,16 @@ const App: React.FC = () => {
           <div className="grid grid-cols-1 gap-4">
             <div className="grid grid-cols-2 gap-4">
               <div>
-                <label className="block text-sm font-medium text-cyan-300 mb-2">First Name</label>
+                <label className="block text-sm font-medium text-purple-300 mb-2">First Name</label>
                 <div className="text-white text-sm">{profileData.firstName}</div>
               </div>
               <div>
-                <label className="block text-sm font-medium text-cyan-300 mb-2">Last Name</label>
+                <label className="block text-sm font-medium text-purple-300 mb-2">Last Name</label>
                 <div className="text-white text-sm">{profileData.lastName}</div>
               </div>
             </div>
             <div>
-              <label className="block text-sm font-medium text-cyan-300 mb-2">Email Address</label>
+              <label className="block text-sm font-medium text-purple-300 mb-2">Email Address</label>
               <div className="text-white text-sm">{profileData.email}</div>
             </div>
             <div>
@@ -1479,7 +1479,7 @@ const App: React.FC = () => {
   );
 
   const renderChatScreen = () => (
-    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-blue-900 to-slate-800 relative overflow-hidden">
+    <div className="min-h-screen bg-black relative overflow-hidden">
       {/* Animated Background Particles */}
       <div className="absolute inset-0">
         {[...Array(20)].map((_, i) => (
@@ -1497,22 +1497,22 @@ const App: React.FC = () => {
       </div>
 
       {/* Header */}
-      <div className="fixed top-0 w-full bg-slate-900/80 backdrop-blur-lg border-b border-cyan-500/20 z-50">
+      <div className="fixed top-0 w-full bg-slate-900/80 backdrop-blur-lg border-b border-purple-500/20 z-50">
         <div className="px-6 py-4 flex items-center justify-between">
           <div className="flex items-center space-x-3">
-            <div className="w-10 h-10 bg-gradient-to-r from-cyan-400 to-purple-500 rounded-full flex items-center justify-center">
-              <i className="fas fa-comments text-white text-sm"></i>
+            <div className="w-12 h-12 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full flex items-center justify-center">
+              <i className="fas fa-comments text-white text-xl"></i>
             </div>
             <div>
               <h1 className="text-white font-semibold text-lg">Support Chat</h1>
-              <p className="text-cyan-300 text-xs">Elite Poker Club</p>
+              <p className="text-purple-300 text-xs">Elite Poker Club</p>
             </div>
           </div>
           <div className="flex items-center space-x-3">
-            <button className="w-10 h-10 bg-slate-800/50 rounded-full flex items-center justify-center text-slate-400 hover:text-cyan-400 transition-colors cursor-pointer">
+            <button className="w-10 h-10 bg-slate-800/50 rounded-full flex items-center justify-center text-slate-400 hover:text-purple-400 transition-colors cursor-pointer">
               <i className="fas fa-bell text-sm"></i>
             </button>
-            <button className="w-10 h-10 bg-slate-800/50 rounded-full flex items-center justify-center text-slate-400 hover:text-cyan-400 transition-colors cursor-pointer">
+            <button className="w-10 h-10 bg-slate-800/50 rounded-full flex items-center justify-center text-slate-400 hover:text-purple-400 transition-colors cursor-pointer">
               <i className="fas fa-user text-sm"></i>
             </button>
           </div>
@@ -1523,26 +1523,26 @@ const App: React.FC = () => {
       <div className="pt-20 pb-24 px-6">
         {/* Verification Status */}
         {isVerifiedPlayer ? (
-          <div className="bg-gradient-to-r from-green-500/20 to-emerald-500/20 backdrop-blur-lg rounded-2xl p-4 border border-green-500/30 shadow-lg shadow-green-500/10 mb-6">
+          <div className="bg-gradient-to-r from-purple-500/20 to-pink-500/20 backdrop-blur-lg rounded-2xl p-4 border border-purple-500/30 shadow-lg shadow-purple-500/10 mb-6">
             <div className="flex items-center space-x-3">
-              <div className="w-10 h-10 bg-green-500 rounded-full flex items-center justify-center">
+              <div className="w-10 h-10 bg-purple-500 rounded-full flex items-center justify-center">
                 <i className="fas fa-check text-white text-sm"></i>
               </div>
               <div>
                 <h3 className="text-white font-bold text-sm">Verified Player</h3>
-                <p className="text-green-300 text-xs">You can access support chat</p>
+                <p className="text-purple-300 text-xs">You can access support chat</p>
               </div>
             </div>
           </div>
         ) : (
-          <div className="bg-gradient-to-r from-red-500/20 to-pink-500/20 backdrop-blur-lg rounded-2xl p-4 border border-red-500/30 shadow-lg shadow-red-500/10 mb-6">
+          <div className="bg-gradient-to-r from-pink-500/20 to-purple-500/20 backdrop-blur-lg rounded-2xl p-4 border border-pink-500/30 shadow-lg shadow-pink-500/10 mb-6">
             <div className="flex items-center space-x-3">
-              <div className="w-10 h-10 bg-red-500 rounded-full flex items-center justify-center">
+              <div className="w-10 h-10 bg-pink-500 rounded-full flex items-center justify-center">
                 <i className="fas fa-times text-white text-sm"></i>
               </div>
               <div>
                 <h3 className="text-white font-bold text-sm">Verification Required</h3>
-                <p className="text-red-300 text-xs">Contact GRE/Manager for verification</p>
+                <p className="text-pink-300 text-xs">Contact GRE/Manager for verification</p>
               </div>
             </div>
           </div>
@@ -1553,7 +1553,7 @@ const App: React.FC = () => {
             {/* Start New Chat Button */}
             <button 
               onClick={() => setShowNewChatModal(true)}
-              className="w-full bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-cyan-600 hover:to-blue-600 text-white font-semibold py-4 rounded-2xl transition-all duration-300 shadow-lg shadow-cyan-500/25 hover:shadow-cyan-500/40 flex items-center justify-center space-x-2 mb-6"
+              className="w-full bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 text-white font-semibold py-4 rounded-2xl transition-all duration-300 shadow-lg shadow-purple-500/25 hover:shadow-purple-500/40 flex items-center justify-center space-x-2 mb-6"
             >
               <i className="fas fa-plus text-sm"></i>
               <span>Start Support Chat</span>
@@ -1578,14 +1578,14 @@ const App: React.FC = () => {
                   <div 
                     key={chat.id} 
                     onClick={() => setCurrentChat(chat)}
-                    className={`bg-white/10 backdrop-blur-lg rounded-2xl p-4 border border-cyan-500/20 shadow-lg cursor-pointer hover:bg-white/15 transition-colors ${
-                      currentChat?.id === chat.id ? 'ring-2 ring-cyan-400' : ''
+                    className={`bg-white/10 backdrop-blur-lg rounded-2xl p-4 border border-purple-500/20 shadow-lg cursor-pointer hover:bg-white/15 transition-colors ${
+                      currentChat?.id === chat.id ? 'ring-2 ring-purple-400' : ''
                     }`}
                   >
                     <div className="flex items-center justify-between">
                       <div className="flex items-center space-x-3">
-                        <div className="w-10 h-10 bg-gradient-to-r from-cyan-400 to-purple-500 rounded-full flex items-center justify-center">
-                          <i className="fas fa-user text-white text-sm"></i>
+                        <div className="w-12 h-12 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full flex items-center justify-center">
+                          <i className="fas fa-user text-white text-xl"></i>
                         </div>
                         <div>
                           <h3 className="text-white font-semibold">{chat.staffName}</h3>
@@ -1600,7 +1600,7 @@ const App: React.FC = () => {
                         </div>
                         <div className="text-slate-400 text-xs">{chat.lastMessageTime}</div>
                         {chat.unreadCount > 0 && (
-                          <div className="w-5 h-5 bg-red-500 rounded-full flex items-center justify-center text-white text-xs font-bold mt-1">
+                          <div className="w-5 h-5 bg-pink-500 rounded-full flex items-center justify-center text-white text-xs font-bold mt-1">
                             {chat.unreadCount}
                           </div>
                         )}
@@ -1613,12 +1613,12 @@ const App: React.FC = () => {
 
             {/* Current Chat Messages */}
             {currentChat && (
-              <div className="bg-white/10 backdrop-blur-lg rounded-2xl border border-cyan-500/20 shadow-lg mb-6">
+              <div className="bg-white/10 backdrop-blur-lg rounded-2xl border border-purple-500/20 shadow-lg mb-6">
                 {/* Chat Header */}
                 <div className="p-4 border-b border-slate-600">
                   <div className="flex items-center space-x-3">
-                    <div className="w-8 h-8 bg-gradient-to-r from-cyan-400 to-purple-500 rounded-full flex items-center justify-center">
-                      <i className="fas fa-user text-white text-xs"></i>
+                    <div className="w-12 h-12 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full flex items-center justify-center">
+                      <i className="fas fa-user text-white text-xl"></i>
                     </div>
                     <div>
                       <h3 className="text-white font-semibold text-sm">{currentChat.staffName}</h3>
@@ -1637,7 +1637,7 @@ const App: React.FC = () => {
                       >
                         <div className={`max-w-xs px-4 py-2 rounded-2xl ${
                           message.sender === 'user' 
-                            ? 'bg-gradient-to-r from-cyan-500 to-blue-500 text-white' 
+                            ? 'bg-gradient-to-r from-purple-500 to-pink-500 text-white' 
                             : 'bg-slate-700 text-white'
                         }`}>
                           <p className="text-sm">{message.message}</p>
@@ -1656,12 +1656,12 @@ const App: React.FC = () => {
                       value={newMessage}
                       onChange={(e) => setNewMessage(e.target.value)}
                       onKeyPress={(e) => e.key === 'Enter' && handleSendMessage()}
-                      className="flex-1 px-4 py-3 bg-slate-700 border border-slate-600 rounded-xl text-white placeholder-slate-400 focus:border-cyan-400 focus:ring-2 focus:ring-cyan-400/20 focus:outline-none"
+                      className="flex-1 px-4 py-3 bg-slate-700 border border-slate-600 rounded-xl text-white placeholder-slate-400 focus:border-purple-400 focus:ring-2 focus:ring-purple-400/20 focus:outline-none"
                       placeholder="Type your message..."
                     />
                     <button
                       onClick={handleSendMessage}
-                      className="bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-cyan-600 hover:to-blue-600 text-white px-4 py-3 rounded-xl transition-colors"
+                      className="bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 text-white px-4 py-3 rounded-xl transition-colors"
                     >
                       <i className="fas fa-paper-plane"></i>
                     </button>
@@ -1680,11 +1680,11 @@ const App: React.FC = () => {
             <h3 className="text-white text-lg font-bold mb-4">Start New Chat</h3>
             <div className="space-y-4">
               <div>
-                <label className="block text-sm font-medium text-cyan-300 mb-2">Select Staff Role</label>
+                <label className="block text-sm font-medium text-purple-300 mb-2">Select Staff Role</label>
                 <select
                   value={selectedStaffRole}
                   onChange={(e) => setSelectedStaffRole(e.target.value)}
-                  className="w-full px-4 py-3 bg-slate-700 border border-slate-600 rounded-xl text-white focus:border-cyan-400 focus:ring-2 focus:ring-cyan-400/20 focus:outline-none"
+                  className="w-full px-4 py-3 bg-slate-700 border border-slate-600 rounded-xl text-white focus:border-purple-400 focus:ring-2 focus:ring-purple-400/20 focus:outline-none"
                 >
                   <option value="">Choose staff role...</option>
                   <option value="Manager">Manager</option>
@@ -1701,7 +1701,7 @@ const App: React.FC = () => {
                 </button>
                 <button
                   onClick={handleStartNewChat}
-                  className="flex-1 bg-cyan-500 hover:bg-cyan-600 text-white py-3 rounded-xl transition-colors"
+                  className="flex-1 bg-purple-500 hover:bg-purple-600 text-white py-3 rounded-xl transition-colors"
                 >
                   Start Chat
                 </button>
@@ -1712,46 +1712,46 @@ const App: React.FC = () => {
       )}
 
       {/* Bottom Navigation */}
-      <div className="fixed bottom-0 w-full bg-slate-900/80 backdrop-blur-lg border-t border-cyan-500/20">
+      <div className="fixed bottom-0 w-full bg-slate-900/80 backdrop-blur-lg border-t border-purple-500/20">
         <div className="grid grid-cols-6 py-3">
           <button 
             onClick={() => setCurrentScreen('dashboard')} 
-            className="flex flex-col items-center justify-center py-2 text-slate-400 hover:text-cyan-400 transition-colors cursor-pointer"
+            className="flex flex-col items-center justify-center py-2 text-slate-400 hover:text-purple-400 transition-colors cursor-pointer"
           >
             <i className="fas fa-home text-lg mb-1"></i>
             <span className="text-xs">Home</span>
           </button>
           <button 
             onClick={() => setCurrentScreen('tables')} 
-            className="flex flex-col items-center justify-center py-2 text-slate-400 hover:text-cyan-400 transition-colors cursor-pointer"
+            className="flex flex-col items-center justify-center py-2 text-slate-400 hover:text-purple-400 transition-colors cursor-pointer"
           >
             <i className="fas fa-table text-lg mb-1"></i>
             <span className="text-xs">Tables</span>
           </button>
           <button 
             onClick={() => setCurrentScreen('wallet')} 
-            className="flex flex-col items-center justify-center py-2 text-slate-400 hover:text-cyan-400 transition-colors cursor-pointer"
+            className="flex flex-col items-center justify-center py-2 text-slate-400 hover:text-purple-400 transition-colors cursor-pointer"
           >
             <i className="fas fa-wallet text-lg mb-1"></i>
             <span className="text-xs">Wallet</span>
           </button>
           <button 
             onClick={() => setCurrentScreen('chat')} 
-            className="flex flex-col items-center justify-center py-2 text-slate-400 hover:text-cyan-400 transition-colors cursor-pointer"
+            className="flex flex-col items-center justify-center py-2 text-slate-400 hover:text-purple-400 transition-colors cursor-pointer"
           >
             <i className="fas fa-comments text-lg mb-1"></i>
             <span className="text-xs">Chat</span>
           </button>
           <button 
             onClick={() => setCurrentScreen('kyc')} 
-            className="flex flex-col items-center justify-center py-2 text-cyan-400 cursor-pointer"
+            className="flex flex-col items-center justify-center py-2 text-purple-400 cursor-pointer"
           >
             <i className="fas fa-id-card text-lg mb-1"></i>
             <span className="text-xs">KYC</span>
           </button>
           <button 
             onClick={() => setCurrentScreen('profile')} 
-            className="flex flex-col items-center justify-center py-2 text-slate-400 hover:text-cyan-400 transition-colors cursor-pointer"
+            className="flex flex-col items-center justify-center py-2 text-slate-400 hover:text-purple-400 transition-colors cursor-pointer"
           >
             <i className="fas fa-user text-lg mb-1"></i>
             <span className="text-xs">Profile</span>
@@ -1762,7 +1762,7 @@ const App: React.FC = () => {
   );
 
   const renderWalletScreen = () => (
-    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-blue-900 to-slate-800 relative overflow-hidden">
+    <div className="min-h-screen bg-black relative overflow-hidden">
       {/* Animated Background Particles */}
       <div className="absolute inset-0">
         {[...Array(20)].map((_, i) => (
@@ -1783,8 +1783,8 @@ const App: React.FC = () => {
       <div className="fixed top-0 w-full bg-slate-900/80 backdrop-blur-lg border-b border-cyan-500/20 z-50">
         <div className="px-6 py-4 flex items-center justify-between">
           <div className="flex items-center space-x-3">
-            <div className="w-10 h-10 bg-gradient-to-r from-cyan-400 to-purple-500 rounded-full flex items-center justify-center">
-              <i className="fas fa-wallet text-white text-sm"></i>
+            <div className="w-12 h-12 bg-gradient-to-r from-cyan-400 to-purple-500 rounded-full flex items-center justify-center">
+              <i className="fas fa-wallet text-white text-xl"></i>
             </div>
             <div>
               <h1 className="text-white font-semibold text-lg">Transactions</h1>
@@ -2003,7 +2003,7 @@ const App: React.FC = () => {
   );
 
   const renderTablesScreen = () => (
-    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-blue-900 to-slate-800 relative overflow-hidden">
+    <div className="min-h-screen bg-black relative overflow-hidden">
       {/* Animated Background Particles */}
       <div className="absolute inset-0">
         {[...Array(20)].map((_, i) => (
@@ -2024,19 +2024,19 @@ const App: React.FC = () => {
       <div className="fixed top-0 w-full bg-slate-900/80 backdrop-blur-lg border-b border-cyan-500/20 z-50">
         <div className="px-6 py-4 flex items-center justify-between">
           <div className="flex items-center space-x-3">
-            <div className="w-10 h-10 bg-gradient-to-r from-cyan-400 to-purple-500 rounded-full flex items-center justify-center">
+            <div className="w-10 h-10 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full flex items-center justify-center">
               <i className="fas fa-spade-suit text-white text-sm"></i>
             </div>
             <div>
               <h1 className="text-white font-semibold text-lg">Live Tables</h1>
-              <p className="text-cyan-300 text-xs">Elite Poker Club</p>
+              <p className="text-purple-300 text-xs">Elite Poker Club</p>
             </div>
           </div>
           <div className="flex items-center space-x-3">
-            <button className="w-10 h-10 bg-slate-800/50 rounded-full flex items-center justify-center text-slate-400 hover:text-cyan-400 transition-colors cursor-pointer">
+            <button className="w-10 h-10 bg-slate-800/50 rounded-full flex items-center justify-center text-slate-400 hover:text-purple-400 transition-colors cursor-pointer">
               <i className="fas fa-bell text-sm"></i>
             </button>
-            <button className="w-10 h-10 bg-slate-800/50 rounded-full flex items-center justify-center text-slate-400 hover:text-cyan-400 transition-colors cursor-pointer">
+            <button className="w-10 h-10 bg-slate-800/50 rounded-full flex items-center justify-center text-slate-400 hover:text-purple-400 transition-colors cursor-pointer">
               <i className="fas fa-user text-sm"></i>
             </button>
           </div>
@@ -2047,22 +2047,22 @@ const App: React.FC = () => {
       <div className="pt-20 pb-24 px-6">
         {/* Current Session Tracker */}
         {currentSession && (
-          <div className="bg-gradient-to-r from-green-500/20 to-emerald-500/20 backdrop-blur-lg rounded-2xl p-6 border border-green-500/30 shadow-lg shadow-green-500/10 mb-6">
+          <div className="bg-gradient-to-r from-purple-500/20 to-pink-500/20 backdrop-blur-lg rounded-2xl p-6 border border-purple-500/30 shadow-lg shadow-purple-500/10 mb-6">
             <div className="flex items-center justify-between">
               <div className="flex items-center space-x-3">
-                <div className="w-12 h-12 bg-green-500 rounded-full flex items-center justify-center">
+                <div className="w-12 h-12 bg-purple-500 rounded-full flex items-center justify-center">
                   <i className="fas fa-play text-white text-lg"></i>
                 </div>
                 <div>
                   <h3 className="text-white font-bold text-lg">Current Session</h3>
-                  <p className="text-green-300 text-sm">{currentSession.tableName}</p>
-                  <p className="text-green-300 text-xs">Buy-in: ${currentSession.buyIn}</p>
+                  <p className="text-purple-300 text-sm">{currentSession.tableName}</p>
+                  <p className="text-purple-300 text-xs">Buy-in: ${currentSession.buyIn}</p>
                 </div>
               </div>
               <div className="text-right">
                 <div className="text-white text-lg font-bold">2h 34m</div>
-                <div className="text-green-300 text-xs">Session Time</div>
-                <button className="mt-2 bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded-lg text-sm transition-colors">
+                <div className="text-purple-300 text-xs">Session Time</div>
+                <button className="mt-2 bg-pink-500 hover:bg-pink-600 text-white px-4 py-2 rounded-lg text-sm transition-colors">
                   <i className="fas fa-sign-out-alt mr-1"></i>
                   Cash Out
                 </button>
@@ -2077,17 +2077,17 @@ const App: React.FC = () => {
             <h2 className="text-white text-lg font-semibold mb-4">Your Waitlists</h2>
             <div className="space-y-3">
               {userWaitlists.map((waitlist) => (
-                <div key={waitlist.tableId} className="bg-white/10 backdrop-blur-lg rounded-2xl p-4 border border-yellow-500/20 shadow-lg">
+                <div key={waitlist.tableId} className="bg-white/10 backdrop-blur-lg rounded-2xl p-4 border border-purple-500/20 shadow-lg">
                   <div className="flex items-center justify-between">
                     <div>
                       <h3 className="text-white font-semibold">{waitlist.tableName}</h3>
-                      <p className="text-yellow-300 text-sm">Position #{waitlist.position}</p>
+                      <p className="text-purple-300 text-sm">Position #{waitlist.position}</p>
                       <p className="text-slate-400 text-xs">Joined: {waitlist.joinedAt}</p>
                     </div>
                     <div className="flex space-x-2">
                       <button 
                         onClick={() => handleLeaveWaitlist(waitlist.tableId)}
-                        className="bg-red-500 hover:bg-red-600 text-white px-3 py-2 rounded-lg text-sm transition-colors"
+                        className="bg-pink-500 hover:bg-pink-600 text-white px-3 py-2 rounded-lg text-sm transition-colors"
                       >
                         Leave
                       </button>
@@ -2105,9 +2105,9 @@ const App: React.FC = () => {
           {tables.map((table: Table) => {
             const isOnWaitlist = userWaitlists.some(w => w.tableId === table.id);
             const statusColors: Record<TableStatus, string> = {
-              active: 'text-green-400',
-              full: 'text-red-400',
-              starting: 'text-yellow-400'
+              active: 'text-purple-400',
+              full: 'text-pink-400',
+              starting: 'text-purple-300'
             };
             const statusIcons: Record<TableStatus, string> = {
               active: 'fa-play-circle',
@@ -2116,11 +2116,11 @@ const App: React.FC = () => {
             };
 
             return (
-              <div key={table.id} className="bg-white/10 backdrop-blur-lg rounded-2xl p-6 border border-cyan-500/20 shadow-lg">
+              <div key={table.id} className="bg-white/10 backdrop-blur-lg rounded-2xl p-6 border border-purple-500/20 shadow-lg">
                 <div className="flex items-center justify-between mb-4">
                   <div className="flex items-center space-x-3">
-                    <div className="w-12 h-12 bg-gradient-to-r from-cyan-400 to-purple-500 rounded-full flex items-center justify-center">
-                      <i className="fas fa-table text-white text-lg"></i>
+                    <div className="w-12 h-12 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full flex items-center justify-center">
+                      <i className="fas fa-table text-white text-xl"></i>
                     </div>
                     <div>
                       <h3 className="text-white font-bold text-lg">{table.name}</h3>
@@ -2133,7 +2133,7 @@ const App: React.FC = () => {
                       {table.status === 'active' ? 'Active' : table.status === 'full' ? 'Full' : 'Starting Soon'}
                     </div>
                     {table.waitlistCount > 0 && (
-                      <div className="text-yellow-400 text-xs">Waitlist: {table.waitlistCount}</div>
+                      <div className="text-purple-300 text-xs">Waitlist: {table.waitlistCount}</div>
                     )}
                   </div>
                 </div>
@@ -2161,7 +2161,7 @@ const App: React.FC = () => {
                   {table.status === 'active' && table.players < table.maxPlayers && !isOnWaitlist && (
                     <button 
                       onClick={() => handleJoinTable(table.id)}
-                      className="flex-1 bg-gradient-to-r from-green-500 to-emerald-500 hover:from-green-600 hover:to-emerald-600 text-white font-semibold py-3 rounded-xl transition-all duration-300 shadow-lg shadow-green-500/25 hover:shadow-green-500/40 flex items-center justify-center space-x-2"
+                      className="flex-1 bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 text-white font-semibold py-3 rounded-xl transition-all duration-300 shadow-lg shadow-purple-500/25 hover:shadow-purple-500/40 flex items-center justify-center space-x-2"
                     >
                       <i className="fas fa-play text-sm"></i>
                       <span>Join Table</span>
@@ -2179,7 +2179,7 @@ const App: React.FC = () => {
                   )}
                   
                   {table.status === 'starting' && (
-                    <button className="flex-1 bg-gradient-to-r from-yellow-500 to-orange-500 hover:from-yellow-600 hover:to-orange-600 text-white font-semibold py-3 rounded-xl transition-all duration-300 shadow-lg shadow-yellow-500/25 hover:shadow-yellow-500/40 flex items-center justify-center space-x-2">
+                    <button className="flex-1 bg-gradient-to-r from-purple-400 to-pink-400 hover:from-purple-500 hover:to-pink-500 text-white font-semibold py-3 rounded-xl transition-all duration-300 shadow-lg shadow-purple-500/25 hover:shadow-purple-500/40 flex items-center justify-center space-x-2">
                       <i className="fas fa-clock text-sm"></i>
                       <span>Register</span>
                     </button>
@@ -2188,7 +2188,7 @@ const App: React.FC = () => {
                   {isOnWaitlist && (
                     <button 
                       onClick={() => handleLeaveWaitlist(table.id)}
-                      className="flex-1 bg-gradient-to-r from-red-500 to-pink-500 hover:from-red-600 hover:to-pink-600 text-white font-semibold py-3 rounded-xl transition-all duration-300 shadow-lg shadow-red-500/25 hover:shadow-red-500/40 flex items-center justify-center space-x-2"
+                      className="flex-1 bg-gradient-to-r from-pink-500 to-pink-400 hover:from-pink-600 hover:to-pink-500 text-white font-semibold py-3 rounded-xl transition-all duration-300 shadow-lg shadow-pink-500/25 hover:shadow-pink-500/40 flex items-center justify-center space-x-2"
                     >
                       <i className="fas fa-times text-sm"></i>
                       <span>Leave Waitlist</span>
@@ -2202,17 +2202,17 @@ const App: React.FC = () => {
 
         {/* Quick Stats */}
         <div className="mt-8 grid grid-cols-3 gap-4">
-          <div className="bg-white/10 backdrop-blur-lg rounded-2xl p-4 border border-cyan-500/20 shadow-lg text-center">
+          <div className="bg-white/10 backdrop-blur-lg rounded-2xl p-4 border border-purple-500/20 shadow-lg text-center">
             <div className="text-white text-2xl font-bold">{tables.filter(t => t.status === 'active').length}</div>
-            <div className="text-cyan-300 text-xs">Active Tables</div>
+            <div className="text-purple-300 text-xs">Active Tables</div>
           </div>
-          <div className="bg-white/10 backdrop-blur-lg rounded-2xl p-4 border border-cyan-500/20 shadow-lg text-center">
+          <div className="bg-white/10 backdrop-blur-lg rounded-2xl p-4 border border-purple-500/20 shadow-lg text-center">
             <div className="text-white text-2xl font-bold">{tables.reduce((sum, t) => sum + t.players, 0)}</div>
-            <div className="text-cyan-300 text-xs">Total Players</div>
+            <div className="text-purple-300 text-xs">Total Players</div>
           </div>
-          <div className="bg-white/10 backdrop-blur-lg rounded-2xl p-4 border border-cyan-500/20 shadow-lg text-center">
+          <div className="bg-white/10 backdrop-blur-lg rounded-2xl p-4 border border-purple-500/20 shadow-lg text-center">
             <div className="text-white text-2xl font-bold">{tables.reduce((sum, t) => sum + t.waitlistCount, 0)}</div>
-            <div className="text-cyan-300 text-xs">On Waitlist</div>
+            <div className="text-purple-300 text-xs">On Waitlist</div>
           </div>
         </div>
       </div>
@@ -2222,24 +2222,24 @@ const App: React.FC = () => {
   );
 
   const renderDashboard = () => (
-    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-blue-900 to-slate-800">
+    <div className="min-h-screen bg-black">
       {/* Header */}
-      <div className="fixed top-0 w-full bg-slate-900/80 backdrop-blur-lg border-b border-cyan-500/20 z-50">
+      <div className="fixed top-0 w-full bg-slate-900/80 backdrop-blur-lg border-b border-purple-500/20 z-50">
         <div className="px-6 py-4 flex items-center justify-between">
           <div className="flex items-center space-x-3">
-            <div className="w-10 h-10 bg-gradient-to-r from-cyan-400 to-purple-500 rounded-full flex items-center justify-center">
-              <i className="fas fa-spade-suit text-white text-sm"></i>
+            <div className="w-12 h-12 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full flex items-center justify-center">
+              <i className="fas fa-spade-suit text-white text-xl"></i>
             </div>
             <div>
               <h1 className="text-white font-semibold text-lg">Elite Poker Club</h1>
-              <p className="text-cyan-300 text-xs">Welcome back, Alex</p>
+              <p className="text-purple-300 text-xs">Welcome back, Alex</p>
             </div>
           </div>
           <div className="flex items-center space-x-3">
-            <button className="w-10 h-10 bg-slate-800/50 rounded-full flex items-center justify-center text-slate-400 hover:text-cyan-400 transition-colors cursor-pointer">
+            <button className="w-10 h-10 bg-slate-800/50 rounded-full flex items-center justify-center text-slate-400 hover:text-purple-400 transition-colors cursor-pointer">
               <i className="fas fa-bell text-sm"></i>
             </button>
-            <button className="w-10 h-10 bg-slate-800/50 rounded-full flex items-center justify-center text-slate-400 hover:text-cyan-400 transition-colors cursor-pointer">
+            <button className="w-10 h-10 bg-slate-800/50 rounded-full flex items-center justify-center text-slate-400 hover:text-purple-400 transition-colors cursor-pointer">
               <i className="fas fa-user text-sm"></i>
             </button>
           </div>
@@ -2251,33 +2251,33 @@ const App: React.FC = () => {
         {/* Stats Grid */}
         <div className="grid grid-cols-2 gap-4 mb-8">
           {/* Wallet Balance */}
-          <div className="bg-white/10 backdrop-blur-lg rounded-2xl p-6 border border-green-500/20 shadow-lg shadow-green-500/10">
+          <div className="bg-white/10 backdrop-blur-lg rounded-2xl p-6 border border-purple-500/20 shadow-lg shadow-purple-500/10">
             <div className="flex items-center justify-between mb-3">
-              <i className="fas fa-wallet text-green-400 text-lg"></i>
-              <span className="text-green-300 text-xs font-medium">BALANCE</span>
+              <i className="fas fa-wallet text-purple-400 text-lg"></i>
+              <span className="text-purple-300 text-xs font-medium">BALANCE</span>
             </div>
             <div className="text-white text-2xl font-bold">$2,450</div>
-            <div className="text-green-300 text-xs mt-1">+$150 today</div>
+            <div className="text-purple-300 text-xs mt-1">+$150 today</div>
           </div>
 
           {/* VIP Tier */}
-          <div className="bg-white/10 backdrop-blur-lg rounded-2xl p-6 border border-orange-500/20 shadow-lg shadow-orange-500/10">
+          <div className="bg-white/10 backdrop-blur-lg rounded-2xl p-6 border border-purple-500/20 shadow-lg shadow-purple-500/10">
             <div className="flex items-center justify-between mb-3">
-              <i className="fas fa-crown text-orange-400 text-lg"></i>
-              <span className="text-orange-300 text-xs font-medium">VIP TIER</span>
+              <i className="fas fa-crown text-purple-400 text-lg"></i>
+              <span className="text-purple-300 text-xs font-medium">VIP TIER</span>
             </div>
             <div className="text-white text-xl font-bold">Gold</div>
-            <div className="text-orange-300 text-xs mt-1">2,340 points</div>
+            <div className="text-purple-300 text-xs mt-1">2,340 points</div>
           </div>
 
           {/* Active Tables */}
-          <div className="bg-white/10 backdrop-blur-lg rounded-2xl p-6 border border-red-500/20 shadow-lg shadow-red-500/10">
+          <div className="bg-white/10 backdrop-blur-lg rounded-2xl p-6 border border-purple-500/20 shadow-lg shadow-purple-500/10">
             <div className="flex items-center justify-between mb-3">
-              <i className="fas fa-table text-red-400 text-lg"></i>
-              <span className="text-red-300 text-xs font-medium">ACTIVE</span>
+              <i className="fas fa-table text-purple-400 text-lg"></i>
+              <span className="text-purple-300 text-xs font-medium">ACTIVE</span>
             </div>
             <div className="text-white text-2xl font-bold">12</div>
-            <div className="text-red-300 text-xs mt-1">tables running</div>
+            <div className="text-purple-300 text-xs mt-1">tables running</div>
           </div>
 
           {/* Online Players */}
@@ -2292,18 +2292,18 @@ const App: React.FC = () => {
         </div>
 
         {/* KYC Status */}
-        <div className="bg-white/10 backdrop-blur-lg rounded-2xl p-6 border border-yellow-500/20 shadow-lg shadow-yellow-500/10 mb-8">
+        <div className="bg-white/10 backdrop-blur-lg rounded-2xl p-6 border border-purple-500/20 shadow-lg shadow-purple-500/10 mb-8">
           <div className="flex items-center justify-between">
             <div className="flex items-center space-x-3">
-              <i className="fas fa-id-card text-yellow-400 text-lg"></i>
+              <i className="fas fa-id-card text-purple-400 text-lg"></i>
               <div>
                 <div className="text-white font-semibold">KYC Verification</div>
-                <div className="text-yellow-300 text-sm">Pending Review</div>
+                <div className="text-purple-300 text-sm">Pending Review</div>
               </div>
             </div>
             <div className="flex items-center space-x-2">
-              <div className="w-2 h-2 bg-yellow-400 rounded-full animate-pulse"></div>
-              <span className="text-yellow-300 text-xs">In Progress</span>
+              <div className="w-2 h-2 bg-purple-400 rounded-full animate-pulse"></div>
+              <span className="text-purple-300 text-xs">In Progress</span>
             </div>
           </div>
         </div>
@@ -2312,15 +2312,15 @@ const App: React.FC = () => {
         <div className="space-y-4">
           <h2 className="text-white text-lg font-semibold mb-4">Quick Actions</h2>
           <div className="grid grid-cols-2 gap-4">
-            <button className="bg-gradient-to-r from-green-500 to-emerald-500 hover:from-green-600 hover:to-emerald-600 text-white font-semibold py-4 rounded-2xl transition-all duration-300 shadow-lg shadow-green-500/25 hover:shadow-green-500/40 flex items-center justify-center space-x-2 !rounded-button cursor-pointer">
+            <button className="bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 text-white font-semibold py-4 rounded-2xl transition-all duration-300 shadow-lg shadow-purple-500/25 hover:shadow-purple-500/40 flex items-center justify-center space-x-2 !rounded-button cursor-pointer">
               <i className="fas fa-list text-sm"></i>
               <span>Join Waitlist</span>
             </button>
-            <button className="bg-gradient-to-r from-orange-500 to-red-500 hover:from-orange-600 hover:to-red-600 text-white font-semibold py-4 rounded-2xl transition-all duration-300 shadow-lg shadow-orange-500/25 hover:shadow-orange-500/40 flex items-center justify-center space-x-2 !rounded-button cursor-pointer">
+            <button className="bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 text-white font-semibold py-4 rounded-2xl transition-all duration-300 shadow-lg shadow-purple-500/25 hover:shadow-purple-500/40 flex items-center justify-center space-x-2 !rounded-button cursor-pointer">
               <i className="fas fa-plus text-sm"></i>
               <span>Deposit</span>
             </button>
-            <button className="bg-gradient-to-r from-cyan-500 to-blue-500 hover:from-cyan-600 hover:to-blue-600 text-white font-semibold py-4 rounded-2xl transition-all duration-300 shadow-lg shadow-cyan-500/25 hover:shadow-cyan-500/40 flex items-center justify-center space-x-2 !rounded-button cursor-pointer">
+            <button className="bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 text-white font-semibold py-4 rounded-2xl transition-all duration-300 shadow-lg shadow-purple-500/25 hover:shadow-purple-500/40 flex items-center justify-center space-x-2 !rounded-button cursor-pointer">
               <i className="fas fa-credit-card text-sm"></i>
               <span>Request Credit</span>
             </button>
@@ -2332,7 +2332,7 @@ const App: React.FC = () => {
               <span>Upload KYC</span>
             </button>
           </div>
-          <button className="w-full bg-gradient-to-r from-red-500 to-pink-500 hover:from-red-600 hover:to-pink-600 text-white font-semibold py-4 rounded-2xl transition-all duration-300 shadow-lg shadow-red-500/25 hover:shadow-red-500/40 flex items-center justify-center space-x-2 !rounded-button cursor-pointer">
+          <button className="w-full bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-600 hover:to-pink-600 text-white font-semibold py-4 rounded-2xl transition-all duration-300 shadow-lg shadow-purple-500/25 hover:shadow-purple-500/40 flex items-center justify-center space-x-2 !rounded-button cursor-pointer">
             <i className="fas fa-money-bill-wave text-sm"></i>
             <span>Cash Out</span>
           </button>
